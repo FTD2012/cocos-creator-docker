@@ -98,7 +98,7 @@ $ ./cocos-creator-x.x.x/cocos-creator --path './CocosTemplateProject/' --build '
 
 ## **Q&A**
 ### 1. 我需要的x.x.x版本在上述列表中没有怎么办？  
-> - 在cocos-creator-docker下复制cocos-creator-2.0.5，并命名为cocos-creator-x.x.x  
+> - 在cocos-creator-docker下复制cocos-creator，并命名为cocos-creator-x.x.x  
 > - 下载相应版本的Cocos Creator x.x.x（Mac或者Windows）  
 > - 使用 <u>Cocos Creator/Resources/</u> 覆盖 <u>cocos-creator-docker/cocos-creator-x.x.x/resouces</u> 除了 <u>utils/</u> 的其他内容  
 
