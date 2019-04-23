@@ -4,7 +4,6 @@
 为了能在Docker下进行前端的持续集成，于是构建了基于Linux环境下可运行的Cocos Creator的若干版本。
 
 ❗目前只在Ubuntu18.04下测试过  
-❗部分版本Cocos Creator没有cocos2d-x游戏引擎，可能需要自己添加
 
 ---
 
@@ -86,7 +85,7 @@ $ ./cocos-creator-x.x.x/cocos-creator --path './CocosTemplateProject/' --build '
 > development: 可以在Linux下进行**开发**，需要GUI环境  
 > build：可以在Linux下进行**构建**，不需要GUI环境
 
-| cocos creator version | development | build |
+| cocos-creator version | development | build |
 | ------ | ------ | ------ |
 | 2.0.9 | ✅ | ✅ |
 | 2.0.5 | ✅ | ✅ |
@@ -104,3 +103,17 @@ $ ./cocos-creator-x.x.x/cocos-creator --path './CocosTemplateProject/' --build '
 
 ### 2. 没有GUI环境的插件怎么安装？
 > 复制 <u>~/.CocosCreator/packages(Mac)</u> 下的内容至<u>~/.CocosCreator/packages(Linux)</u>
+
+---
+## **参考**
+
+> [Successfully Run Cocos Creator on Linux and released it as docker image](http://discuss.cocos2d-x.org/t/successfully-run-cocos-creator-on-linux-and-released-it-as-docker-image/40755)
+
+> [Cocos Creator 1.9 unofficial Linux release and Docker image](http://discuss.cocos2d-x.org/t/cocos-creator-1-9-unofficial-linux-release-and-docker-image/41936)
+
+> [sercand/cocos-creator docker hub](https://hub.docker.com/r/sercand/cocos-creator/tags)
+
+> [cocos-creator-1.9.0-linux.tar.xz](https://storage.googleapis.com/otsimobuilds/cocos-creator-1.9.0-linux.tar.xz)
+
+
+
