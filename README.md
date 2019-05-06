@@ -78,6 +78,13 @@ $ ./cocos-creator-x.x.x/cocos-creator --path './CocosTemplateProject/'
 $ cd /path/to/cocos-creator-docker
 $ ./cocos-creator-x.x.x/cocos-creator --path './CocosTemplateProject/' --build 'platform=web-mobile;debug=true'
 ```
+---
+## 如何使用CocosCreator进行构建？
+```
+1. 将Cocos工程拷贝至/opt下，eg，CocosProject
+2. $ cd /opt
+3. $ ./build.sh -d ./CocosProject
+```
 
 ---
 

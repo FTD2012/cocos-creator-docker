@@ -49,19 +49,36 @@ RUN apt-get update \
 		curl \
     && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
 	&& apt-get update \
-    && apt-get install -y nodejs
+    && apt-get install -y nodejs \
+		&& apt-get install -y git
+
+
+RUN mkdir ~/.CocosCreator \
+	&& mkdir ~/.CocosCreator/packages \
+	&& cd ~/.CocosCreator/packages \
+	&& git clone https://github.com/cocos-creator-packages/i18n \
+	&& cd i18n \
+	&& git checkout 0.0.2 \
+	&& npm install tnpm -g --registry=http://registry.npm.alibaba-inc.com
 
 ENV YARN_VERSION 1.3.2
 
 RUN curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
-  && mkdir -p /opt/yarn \
-  && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1 \
-  && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
-  && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
-  && rm yarn-v$YARN_VERSION.tar.gz \
-  && apt-get clean
+  	&& mkdir -p /opt/yarn \
+  	&& tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1 \
+  	&& ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
+  	&& ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
+  	&& rm yarn-v$YARN_VERSION.tar.gz \
+  	&& apt-get clean
 
-ADD cocos-build.sh /opt/cocos-build.sh
-ADD cocos-creator /opt/cocos-creator 
+WORKDIR /opt
 
-ENTRYPOINT ["/opt/cocos-build.sh"]
+COPY cocos-build.sh /opt/cocos-build.sh
+COPY cocos-creator  /opt/cocos-creator
+COPY build.sh       /opt/build.sh
+COPY start.sh       /opt/start.sh
+
+RUN tnpm install
+RUN chmod +x start.sh
+RUN chmod +x build.sh
+CMD ["/bin/bash","start.sh"]
